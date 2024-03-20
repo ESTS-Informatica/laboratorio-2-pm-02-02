@@ -9,7 +9,7 @@ public class PropertyTest {
 
     @BeforeEach
     public void setUp() {
-        property1 = new Property("Casa na praia", 500000.0); 
+        property1 = new Property("T3 Monte Belo", 150000.0); 
     }
 
     @AfterEach
@@ -19,7 +19,7 @@ public class PropertyTest {
 
     @Test
     public void testConstructor() { 
-        assertEquals("Casa na praia", property1.getDescription());
-        assertEquals(500000.0, property1.getPrice(), 0.01);
+        assertEquals("T3 Monte Belo", property1.getDescription());
+        assertEquals(150000.0, property1.getPrice(), 0.01);
     }
 }
