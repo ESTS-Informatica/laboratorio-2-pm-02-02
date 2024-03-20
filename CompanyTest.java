@@ -57,4 +57,35 @@ public class CompanyTest
         assertNotNull(company.getProperties());
         assertNotNull(company.getSells());
     }
+    
+    @Test
+    public void testRegisterClient() {
+        User client = new User("José Manuel", "911111111", "zemanel@yahoo.com");
+        assertTrue(company.registerClient(client));
+        assertTrue(company.getClients().contains(client));
+    }
+    
+    @Test
+    public void testRegisterClients() {
+        User client1 = new User("José Manuel", "911111111", "zemanel@yahoo.com");
+        User client2 = new User("António Francisco", "922222222", "tochico@hotmail.com");
+        assertTrue(company.registerClient(client1));
+        assertTrue(company.registerClient(client2));
+        assertTrue(company.getClients().contains(client1));
+        assertTrue(company.getClients().contains(client2));
+    }
+    
+    @Test
+    public void testRegisterClientDuplicate() {
+        User client = new User("José Manuel", "911111111", "zemanel@yahoo.com");
+        assertTrue(company.registerClient(client));
+        assertFalse(company.registerClient(client));
+        assertEquals(6, company.getClients().size());
+    }
+    
+    @Test
+    public void testRegisterClientNull() {
+        assertFalse(company.registerClient(null));
+        assertEquals(0, company.getClients().size());
+    }
 }

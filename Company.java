@@ -73,7 +73,10 @@ public class Company {
      * @return true If the registration succeeds, false otherwise.
      */
     public boolean registerClient(User client) {
-        return true;         // dummy implementation
+        if (client == null || clients.contains(client)) {
+            return false; // Não é possível registrar cliente nulo ou duplicado
+        }
+        return clients.add(client);
     }
 
     /**
@@ -127,6 +130,8 @@ public class Company {
     public int calculateSellsOfTheYear(int year) {
         return 0;         // dummy implementation
     }
+    
+    
 
     /**
      * Find the seller with more sells within the provided year.
@@ -137,5 +142,6 @@ public class Company {
     public String findSellerOfTheYear(int year) {
         return null;         // dummy implementation
     }
-
+    
+    
 }
