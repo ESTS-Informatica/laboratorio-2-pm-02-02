@@ -70,6 +70,6 @@ public class Property {
 
     @Override
     public String toString() {
-        return this.numberOfProperties + "\t(" + this.description + ")\t" + this.price;
+         return "Descricao : " + this.description + "\nPreco : " + this.price + " Euros\n";
     }
 }
